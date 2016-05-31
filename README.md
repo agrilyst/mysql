@@ -1,6 +1,9 @@
 # MySQL Cookbook
 
-[![Build Status](https://travis-ci.org/chef-cookbooks/mysql.svg?branch=master)](https://travis-ci.org/chef-cookbooks/mysql) [![Cookbook Version](https://img.shields.io/cookbook/v/mysql.svg)](https://supermarket.chef.io/cookbooks/mysql)
+## Agrilyst Changes
+- Removed yum-mysql-community cookbook dependency
+- Cookbook assumes a proper yum mysql repository is already configured
+
 
 The Mysql Cookbook is a library cookbook that provides resource primitives (LWRPs) for use in recipes. It is designed to be a reference example for creating highly reusable cross-platform cookbooks.
 
@@ -46,7 +49,6 @@ The following platforms have been tested with Test Kitchen:
 
 ## Cookbook Dependencies
 
-- yum-mysql-community
 - smf
 
 ## Usage

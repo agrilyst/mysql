@@ -24,9 +24,6 @@ class Chef
       # etc_dir, run_dir, log_dir, etc
 
       action :create do
-        # Yum, Apt, etc. From helpers.rb
-        configure_package_repositories
-
         # Software installation
         package "#{new_resource.name} :create #{server_package_name}" do
           package_name server_package_name

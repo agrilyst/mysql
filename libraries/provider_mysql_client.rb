@@ -14,9 +14,6 @@ class Chef
       end
 
       action :create do
-        # From helpers.rb
-        configure_package_repositories
-
         client_package_name.each do |p|
           package "#{new_resource.name} :create #{p}" do
             package_name p

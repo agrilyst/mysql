@@ -8,22 +8,6 @@ module MysqlCookbook
       prefix_dir || '/usr'
     end
 
-    def configure_package_repositories
-      # we need to enable the yum-mysql-community repository to get packages
-      return unless %w(rhel fedora).include? node['platform_family']
-      case parsed_version
-      when '5.5'
-        # Prefer packages from native repos
-        return if node['platform_family'] == 'rhel' && node['platform_version'].to_i == 5
-        return if node['platform_family'] == 'fedora'
-        include_recipe('yum-mysql-community::mysql55')
-      when '5.6'
-        include_recipe('yum-mysql-community::mysql56')
-      when '5.7'
-        include_recipe('yum-mysql-community::mysql57')
-      end
-    end
-
     def client_package_name
       return new_resource.package_name if new_resource.package_name
       client_package
